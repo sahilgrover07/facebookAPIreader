@@ -1,0 +1,52 @@
+﻿@model SocialMediaReader.Models.SocialMedia.Facebook.Posts
+
+@{
+    ViewBag.Title = "Posts";
+
+}
+<div class="main">
+    <h2>Bhavna Activity</h2>
+
+
+    @*<p>@Html.Raw(ViewBag.JSON)</p>*@
+    <div class="panel-group">
+
+        @foreach (var post in Model.feed.data)
+        {
+            <div class="panel-heading">
+
+
+            </div>
+            <div class="panel-body">
+                @if (!String.IsNullOrEmpty(post.message))
+                {
+                    <p><b>Post: </b>@post.message</p>
+
+                    if (!String.IsNullOrEmpty(post.story))
+                    {
+
+                        <p><b>Story: </b>@post.story</p>
+                    }
+
+
+                    if (!String.IsNullOrEmpty(@post.link))
+                    {
+                        <p><a href="@post.link"> Click here for more info.</a></p>
+                    }
+                    <p style="font-size:70%; text-align:right"><b>Time: </b>@post.created_time </p>
+
+                }
+
+            </div>
+            <div class="panel-footer">
+                @if (!String.IsNullOrEmpty(post.message))
+                {
+
+
+                }
+
+            </div>
+        }
+
+    </div>
+</div>
